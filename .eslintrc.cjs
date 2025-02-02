@@ -1,3 +1,6 @@
+const stylisticJsx = require('@stylistic/eslint-plugin-jsx');
+const stylisticTs = require('@stylistic/eslint-plugin-ts');
+
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
@@ -8,11 +11,14 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh'],
+  plugins: ['react-refresh', '@stylistic/jsx', '@stylistic/ts'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    '@stylistic/jsx/jsx-indent-props': ['error', 2],
+    '@stylistic/ts/indent': ['error', 2],
+    '@stylistic/jsx/jsx-indent': ['error', 2],
+    '@stylistic/ts/quotes': ['error', 'single'],
+    '@stylistic/ts/semi': ['error', 'always'],
+    'max-len': 'off',
+    '@stylistic/jsx/jsx-first-prop-new-line': 'error',
   },
-}
+};
